@@ -28,6 +28,7 @@ namespace ConfigurationDotNetCore
             services.AddDbContext<EmployeeContext>(dbOptions =>
             dbOptions.UseSqlServer(Configuration.GetConnectionString("DatabaseString")));
             services.AddControllersWithViews();
+
         }//Add Services Block to Inject DbContext
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

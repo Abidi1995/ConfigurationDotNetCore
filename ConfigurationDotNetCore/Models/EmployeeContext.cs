@@ -17,5 +17,6 @@ namespace ConfigurationDotNetCore.Models
         }
 
         public DbSet<Employee> Employees { get; set; }//Mapping
+
     }
 }
