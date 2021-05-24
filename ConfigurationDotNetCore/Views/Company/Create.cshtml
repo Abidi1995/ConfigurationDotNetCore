@@ -1,0 +1,63 @@
+﻿@model ConfigurationDotNetCore.Models.Company
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Add A Company</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CompanyName" class="control-label"></label>
+                <input asp-for="CompanyName" class="form-control" />
+                <span asp-validation-for="CompanyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RegisterationNo" class="control-label"></label>
+                <input asp-for="RegisterationNo" class="form-control" />
+                <span asp-validation-for="RegisterationNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompanyType" class="control-label"></label>
+                <input asp-for="CompanyType" class="form-control" />
+                <span asp-validation-for="CompanyType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NoOfEmployees" class="control-label"></label>
+                <input asp-for="NoOfEmployees" class="form-control" />
+                <span asp-validation-for="NoOfEmployees" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompanyNtNnO" class="control-label"></label>
+                <input asp-for="CompanyNtNnO" class="form-control" />
+                <span asp-validation-for="CompanyNtNnO" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompanyWebsite" class="control-label"></label>
+                <input asp-for="CompanyWebsite" class="form-control" />
+                <span asp-validation-for="CompanyWebsite" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-success">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "List";
+ }
+@model IEnumerable<ConfigurationDotNetCore.Models.Company>
+<h3>List of Companies</h3>
+<p>
+    <a asp-action="Create" class="btn btn-success">Add New Company</a>
+</p>
+@if (Model.Count() > 0) {
+<table class="table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegisterationNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyNtNnO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyWebsite)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoOfEmployees)
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td> @Html.DisplayFor(modelItem => item.CompanyName)</td>
+                <td> @Html.DisplayFor(modelItem => item.CompanyType)</td>
+                <td> @Html.DisplayFor(modelItem => item.Address)</td>
+                <td> @Html.DisplayFor(modelItem => item.CompanyWebsite)</td>
+                <td>@Html.DisplayFor(modelItem => item.NoOfEmployees)</td>
+                <td>@Html.DisplayFor(modelItem => item.RegisterationNo)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+}
+else
+{
+    <div class="alert">
+        <h4>No Company Added Yet</h4>
+    </div>
+}
