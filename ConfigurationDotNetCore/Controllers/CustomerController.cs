@@ -20,5 +20,18 @@ namespace ConfigurationDotNetCore.Controllers
         {
             return View(await _context.Customers.ToListAsync());
         }
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+        public async Task<IActionResult> Create(Customer customer)
+        {
+            return View();
+        }
+        public async Task<IActionResult> Edit(int ? CustomerId)
+        {
+            return View();
+        }
     }
 }

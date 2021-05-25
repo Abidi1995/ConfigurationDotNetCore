@@ -16,9 +16,18 @@ namespace ConfigurationDotNetCore.Controllers
             _context = context;
 
         }
-        public async Task< IActionResult>Index()
+        public async Task<IActionResult> Index()
         {
             return View(await _context.Products.ToListAsync());
+        }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+        public async Task<IActionResult> Create(Product product)
+        {
+            return View();
         }
     }
 }
