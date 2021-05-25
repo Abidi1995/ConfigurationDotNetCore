@@ -18,5 +18,8 @@ namespace ConfigurationDotNetCore.Models
 
         public DbSet<Employee> Employees { get; set; }//Mapping
         public DbSet<Company> Companies { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductDetails> ProductDetails { get; set; }
+        public DbSet<Customer> Customers { get; set; }
     }
 }
