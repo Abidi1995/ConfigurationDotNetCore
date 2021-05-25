@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ConfigurationDotNetCore.Models
 {
-    public class EmployeeContext : DbContext
+    public class CompanyContext : DbContext
     {
-        public EmployeeContext(DbContextOptions<EmployeeContext> dbContextOptions) : base(dbContextOptions)//constructor
+        public CompanyContext(DbContextOptions<CompanyContext> dbContextOptions) : base(dbContextOptions)//constructor
 
 
         {

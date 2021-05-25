@@ -10,8 +10,8 @@ namespace ConfigurationDotNetCore.Controllers
 {
     public class CompanyController : Controller
     {
-        private readonly EmployeeContext objemp;
-        public CompanyController(EmployeeContext context)
+        private readonly CompanyContext objemp;
+        public CompanyController(CompanyContext context)
         {
             objemp = context;
         }

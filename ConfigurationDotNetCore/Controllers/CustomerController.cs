@@ -10,8 +10,8 @@ namespace ConfigurationDotNetCore.Controllers
 {
     public class CustomerController : Controller
     {
-        private readonly EmployeeContext _context;
-        public CustomerController(EmployeeContext context)
+        private readonly CompanyContext _context;
+        public CustomerController(CompanyContext context)
         {
             _context = context;
 

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ConfigurationDotNetCore.Migrations
 {
-    [DbContext(typeof(EmployeeContext))]
+    [DbContext(typeof(CompanyContext))]
     [Migration("20210524113420_Second")]
     partial class Second
     {

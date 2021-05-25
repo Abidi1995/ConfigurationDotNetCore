@@ -11,9 +11,9 @@ namespace ConfigurationDotNetCore.Controllers
 {
     public class EmployeesController : Controller
     {
-        private readonly EmployeeContext _context;
+        private readonly CompanyContext _context;
 
-        public EmployeesController(EmployeeContext context)
+        public EmployeesController(CompanyContext context)
         {
             _context = context;
         }
