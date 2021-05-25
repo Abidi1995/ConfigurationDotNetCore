@@ -1,7 +1,36 @@
-﻿
+﻿@model IEnumerable<ConfigurationDotNetCore.Models.ProductDetails>
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>List of Product</h1>
+<table class="table-bordered table-hover table-light table-striped">
+    <thead class="thead-light">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Picture)</th>
+            <th>@Html.DisplayNameFor(model => model.Comments)</th>
+            <th>@Html.DisplayNameFor(model => model.MoreDescriptions)</th>
+            
+  
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Picture)</td>
+                <td>@Html.DisplayFor(modelItem => item.Comments)</td>
+                <td>@Html.DisplayFor(modelItem => item.MoreDescriptions)</td>
+            
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ProductCode">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ProductCode">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ProductCode">Delete</a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
 

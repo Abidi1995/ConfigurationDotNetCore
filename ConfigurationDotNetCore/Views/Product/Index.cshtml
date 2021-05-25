@@ -1,7 +1,41 @@
-﻿
+﻿@model IEnumerable<ConfigurationDotNetCore.Models.Product>
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>List of Product</h1>
+<table class="table-bordered table-hover table-light table-striped">
+    <thead class="thead-light">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ProductName)</th>
+            <th>@Html.DisplayNameFor(model => model.ProductType)</th>
+            <th>@Html.DisplayNameFor(model => model.PurchasePrice)</th>
+            <th>@Html.DisplayNameFor(model => model.SalePrice)</th>
+            <th>@Html.DisplayNameFor(model => model.Stock)</th>
+            <th>@Html.DisplayNameFor(model => model.SupplierName)</th>
+            <th>@Html.DisplayNameFor(model => model.UnitPrice)</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@Html.DisplayFor(modelItem =>item.ProductName)</td>
+            <td>@Html.DisplayFor(modelItem => item.ProductType)</td>
+            <td>@Html.DisplayFor(modelItem => item.PurchasePrice)</td>
+            <td>@Html.DisplayFor(modelItem => item.SalePrice)</td>
+            <td>@Html.DisplayFor(modelItem => item.Stock)</td>
+            <td>@Html.DisplayFor(modelItem => item.SupplierName)</td>
+            <td>@Html.DisplayFor(modelItem => item.UnitPrice)</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+
+        }
+    </tbody>
+</table>
 
