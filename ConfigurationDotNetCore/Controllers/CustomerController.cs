@@ -43,9 +43,36 @@ namespace ConfigurationDotNetCore.Controllers
             }
             return View(customer);
         }
-        public async Task<IActionResult> Edit(int ? CustomerId)
+        public async Task<IActionResult> Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var customer = await _context.Customers.FindAsync(id);
+            if (customer == null)
+            {
+                return NotFound();
+              
+            }
+
+            return View(customer);
+
+        }
+        public async Task<IActionResult>Edit(Customer customer)
+        {
+            _context.Entry(customer).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            var delete = _context.Products.Where(c => c.Id == id).FirstOrDefault();
+            _context.Products.Remove(delete);
+            await _context.SaveChangesAsync();
+            var list = _context.Products.ToListAsync();
+            return View("Index", "list");
         }
     }
 }

@@ -58,5 +58,22 @@ namespace ConfigurationDotNetCore.Controllers
             }
             return View(find);
         }
+        public async Task<IActionResult> Edit(Product product)
+
+        {
+            _context.Entry(product).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            return View(product);
+
+        }
+        public async Task<IActionResult> Delete(int id)
+        {
+            var del = _context.Products.Where(p => p.Id == id).FirstOrDefault();
+            _context.Products.Remove(del);
+            await _context.SaveChangesAsync();
+            var list = _context.Products.ToListAsync();
+            return View("Index", "list");
+        }
+
     }
 }

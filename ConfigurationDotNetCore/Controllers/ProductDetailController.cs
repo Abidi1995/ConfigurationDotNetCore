@@ -55,7 +55,7 @@ namespace ConfigurationDotNetCore.Controllers
             return View(productdetail);
         }
         [HttpPost]
-        public async Task<IActionResult>Edit(int id,ProductDetails productDetails)
+        public async Task<IActionResult>Edit(ProductDetails productDetails)
         {
             _context.Entry(productDetails).State = EntityState.Modified;
             await _context.SaveChangesAsync();
@@ -64,7 +64,7 @@ namespace ConfigurationDotNetCore.Controllers
         public async Task<IActionResult>Delete(int id)
         {
             var res = _context.ProductDetails.Where(x => x.Id == id).First();
-            _context.ProductDetails.Remove(res);
+           _context .ProductDetails.Remove(res);
             await _context.SaveChangesAsync();
             var list = _context.ProductDetails.ToListAsync();
             return View("Index", "list");
