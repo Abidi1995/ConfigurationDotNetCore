@@ -25,9 +25,23 @@ namespace ConfigurationDotNetCore.Controllers
         {
             return View();
         }
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Create(Customer customer)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                customer.CustomerName = customer.CustomerName;
+                customer.Email = customer.Email;
+                customer.Country = customer.Country;
+                customer.ContactNo = customer.ContactNo;
+                customer.Address = customer.Address;
+                customer.MobileNo = customer.MobileNo;
+                _context.Customers.Add(customer);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            return View(customer);
         }
         public async Task<IActionResult> Edit(int ? CustomerId)
         {

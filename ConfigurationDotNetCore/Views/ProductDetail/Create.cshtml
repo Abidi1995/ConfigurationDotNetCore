@@ -1,0 +1,22 @@
+﻿@model ProductDetails
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Add Product Details</h1>
+<div class="row">
+    <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-sm-12">
+        <label asp-for="MoreDescriptions">Description of Product</label>
+        <textarea cols="12" rows="12"></textarea>
+
+    </div>
+    <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-sm-12">
+        <label asp-for="Picture">Upload Picture</label>
+        <input type="file" />
+    </div>
+    <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-sm-12">
+        <label asp-for="Comments">Comments</label>
+        <textarea cols="12" rows="12"></textarea>
+    </div>
+</div>
+

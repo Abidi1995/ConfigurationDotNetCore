@@ -24,10 +24,39 @@ namespace ConfigurationDotNetCore.Controllers
         public ActionResult Create()
         {
             return View();
+
         }
+        [AutoValidateAntiforgeryToken]
+        [HttpPost]
         public async Task<IActionResult> Create(Product product)
         {
-            return View();
+            if (ModelState.IsValid) {
+                product.ProductName = product.ProductName;
+                product.ProductType = product.ProductType;
+                product.PurchasePrice = product.PurchasePrice;
+                product.SalePrice = product.SalePrice;
+                product.Stock = product.Stock;
+                product.UnitPrice = product.UnitPrice;
+                product.SupplierName = product.SupplierName;
+                _context.Products.Add(product);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            return View(product);
+            
+        }
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var find = await _context.Products.FindAsync(id);
+            if (find == null)
+            {
+                return NotFound();
+            }
+            return View(find);
         }
     }
 }

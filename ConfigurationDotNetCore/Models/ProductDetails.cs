@@ -10,7 +10,7 @@ namespace ConfigurationDotNetCore.Models
     { 
     
         [Key]
-        public int ProductCode{ get; set; }
+        public int Id{ get; set; }
         public string MoreDescriptions{ get; set; }
         public byte[] Picture{ get; set; }
         public string Comments{ get; set; }

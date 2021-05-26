@@ -9,63 +9,59 @@
 <h4>Employee</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="EmployeeFullName" class="control-label"></label>
-                <input asp-for="EmployeeFullName" class="form-control" />
-                <span asp-validation-for="EmployeeFullName" class="text-danger"></span>
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 has-feedback">
+        <label asp-for="EmployeeFullName">Employee Name</label>
+        <div class="form-group form-group-feedback form-group-feedback-left">
+            <input type="text" class="form-control" placeholder="Enter Employee Name" asp-for="EmployeeFullName">
+            <div class="form-control-feedback bg-dark bgwidth ">
+                <i class="icon-sort-numberic-desc iconwidth"></i>
             </div>
-            <div class="form-group">
-                <label asp-for="FatherName" class="control-label"></label>
-                <input asp-for="FatherName" class="form-control" />
-                <span asp-validation-for="FatherName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 has-feedback">
+        <label>Father Name</label>
+        <div class="form-group form-group-feedback form-group-feedback-left">
+            <input type="text" class="form-control" placeholder="Enter Father Name" asp-for="FatherName">
+            <div class="form-control-feedback bg-dark">
+                <i class="icon-sort-numberic-desc "></i>
             </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 has-feedback">
+        <label>Date of Birth</label>
+        <div class="form-group form-group-feedback form-group-feedback-left">
+            <input type="date" class="form-control" placeholder="Enter Country Name" asp-for="DateOfBirth">
+            <div class="form-control-feedback bg-dark">
+                <i class="icon-sort-numberic-desc "></i>
             </div>
-            <div class="form-group">
-                <label asp-for="DateOfBirth" class="control-label"></label>
-                <input asp-for="DateOfBirth" class="form-control" />
-                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 has-feedback">
+        <label>Email</label>
+        <div class="form-group form-group-feedback form-group-feedback-left">
+            <input type="text" class="form-control" placeholder="Enter Email Address" asp-for="Email">
+            <div class="form-control-feedback bg-dark  ">
+                <i class="icon-sort-numberic-desc"></i>
             </div>
-            <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
-                <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 has-feedback">
+        <label>Address</label>
+        <div class="form-group form-group-feedback form-group-feedback-left">
+            <input type="text" class="form-control" placeholder="Enter Address" asp-for="Address">
+            <div class="form-control-feedback bg-dark  ">
+                <i class="icon-sort-numberic-desc"></i>
             </div>
-            <div class="form-group">
-                <label asp-for="Mobile" class="control-label"></label>
-                <input asp-for="Mobile" class="form-control" />
-                <span asp-validation-for="Mobile" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 has-feedback">
+        <label>Age</label>
+        <div class="form-group form-group-feedback form-group-feedback-left">
+            <input type="number" class="form-control" placeholder="Enter Age" asp-for="Age">
+            <div class="form-control-feedback bg-dark  ">
+                <i class="icon-sort-numberic-desc"></i>
             </div>
-            <div class="form-group">
-                <label asp-for="Salary" class="control-label"></label>
-                <input asp-for="Salary" class="form-control" />
-                <span asp-validation-for="Salary" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Shift" class="control-label"></label>
-                <input asp-for="Shift" class="form-control" />
-                <span asp-validation-for="Shift" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Notes" class="control-label"></label>
-                <input asp-for="Notes" class="form-control" />
-                <span asp-validation-for="Notes" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Age" class="control-label"></label>
-                <input asp-for="Age" class="form-control" />
-                <span asp-validation-for="Age" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 

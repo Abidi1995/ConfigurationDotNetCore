@@ -7,10 +7,10 @@
 <h1>List of Employees</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-success">Create New</a>
+    <a asp-action="Create" class="btn btn-success float-right">Create New</a>
 </p>
-<table class="table table-bordered">
-    <thead>
+<table class="table table-bordered table-light table-hover">
+    <thead class="thead-light">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.EmployeeFullName)

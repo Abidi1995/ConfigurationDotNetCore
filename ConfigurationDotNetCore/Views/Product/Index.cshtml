@@ -2,9 +2,11 @@
 @{
     ViewData["Title"] = "Index";
 }
-
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+</p>
 <h1>List of Product</h1>
-<table class="table-bordered table-hover table-light table-striped">
+<table class="table table-bordered table-light table-hover">
     <thead class="thead-light">
         <tr>
             <th>@Html.DisplayNameFor(model => model.ProductName)</th>
