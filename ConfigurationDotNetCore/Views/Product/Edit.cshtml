@@ -1,7 +1,88 @@
-﻿
+﻿@model Product
 @{
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<div class="card border-top-primary border-left-primary">
+    <div class="card-title">
+        <div class="col-12">
+            <h3>Edit</h3>
+            <hr />
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 has-feedback">
+                <input type="hidden" asp-for="Id" />
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 has-feedback">
+                <label asp-for="ProductName">Product Name</label>
+                <div class="form-group form-group-feedback form-group-feedback-left">
+                    <input type="text" class="form-control" placeholder="Enter Product Name" asp-for="ProductName">
+                    <div class="form-control-feedback bg-dark bgwidth ">
+                        <i class="icon-sort-numberic-desc iconwidth"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 has-feedback">
+                <label>Contact Number</label>
+                <div class="form-group form-group-feedback form-group-feedback-left">
+                    <input type="text" class="form-control" placeholder="Enter Contact Number" asp-for="ProductType">
+                    <div class="form-control-feedback bg-dark">
+                        <i class="icon-sort-numberic-desc "></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 has-feedback">
+                <label>Country</label>
+                <div class="form-group form-group-feedback form-group-feedback-left">
+                    <input type="text" class="form-control" placeholder="Enter Country Name" asp-for="PurchasePrice">
+                    <div class="form-control-feedback bg-dark">
+                        <i class="icon-sort-numberic-desc "></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 has-feedback">
+                <label>Email</label>
+                <div class="form-group form-group-feedback form-group-feedback-left">
+                    <input type="text" class="form-control" placeholder="Enter Email Address" asp-for="SupplierName">
+                    <div class="form-control-feedback bg-dark  ">
+                        <i class="icon-sort-numberic-desc"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 has-feedback">
+                <label>Sale Price</label>
+                <div class="form-group form-group-feedback form-group-feedback-left">
+                    <input type="text" class="form-control" placeholder="Enter Address" asp-for="SalePrice">
+                    <div class="form-control-feedback bg-dark  ">
+                        <i class="icon-sort-numberic-desc"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 has-feedback">
+                <label>Unit Price</label>
+                <div class="form-group form-group-feedback form-group-feedback-left">
+                    <input type="text" class="form-control" placeholder="Enter Mobile Number" asp-for="UnitPrice">
+                    <div class="form-control-feedback bg-dark  ">
+                        <i class="icon-sort-numberic-desc"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12 col-xl-12 col-sm-12">   <input type="submit" value="Save" class="btn btn-primary float-right" id="submit" /></div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    
+
+
+    
+</script>
 
