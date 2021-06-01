@@ -65,8 +65,10 @@ namespace ConfigurationDotNetCore.Controllers
             await _context.SaveChangesAsync();
             return View(product);
 
+
         }
-        public async Task<IActionResult> Delete(int id)
+    
+        public async Task<IActionResult> Delete(Product product, int id)
         {
             var del = _context.Products.Where(p => p.Id == id).FirstOrDefault();
             _context.Products.Remove(del);
