@@ -3,58 +3,82 @@
 @{
     ViewData["Title"] = "Create";
 }
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <h1>Add A Company</h1>
 
 
 <hr />
-<div class="row">
-    <div class="col-md-6">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="CompanyName" class="control-label"></label>
-                <input asp-for="CompanyName" class="form-control" />
-                <span asp-validation-for="CompanyName" class="text-danger"></span>
+
+<div class="col-md-6">
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <div class="input-group">
+
             </div>
-            <div class="form-group">
-                <label asp-for="RegisterationNo" class="control-label"></label>
-                <input asp-for="RegisterationNo" class="form-control" />
-                <span asp-validation-for="RegisterationNo" class="text-danger"></span>
+            <label asp-for="CompanyName" class="control-label"></label>
+            <input asp-for="CompanyName" class="form-control" />
+            <span asp-validation-for="CompanyName" class="text-danger"></span>
+
+        </div>
+        <div class="form-group">
+            <label asp-for="RegisterationNo" class="control-label"></label>
+            <input asp-for="RegisterationNo" class="form-control" />
+            <span asp-validation-for="RegisterationNo" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CompanyType" class="control-label"></label>
+            <input asp-for="CompanyType" class="form-control" />
+            <span asp-validation-for="CompanyType" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Address" class="control-label"></label>
+            <input asp-for="Address" class="form-control" />
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NoOfEmployees" class="control-label"></label>
+            <input asp-for="NoOfEmployees" class="form-control" />
+            <span asp-validation-for="NoOfEmployees" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input id="password" type="password" class="form-control" name="password" placeholder="Password">
             </div>
-            <div class="form-group">
-                <label asp-for="CompanyType" class="control-label"></label>
-                <input asp-for="CompanyType" class="form-control" />
-                <span asp-validation-for="CompanyType" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input id="password" type="password" class="form-control" name="password" placeholder="Password">
             </div>
-            <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
-                <span asp-validation-for="Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NoOfEmployees" class="control-label"></label>
-                <input asp-for="NoOfEmployees" class="form-control" />
-                <span asp-validation-for="NoOfEmployees" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CompanyNtNnO" class="control-label"></label>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="CompanyNtNnO" class="control-label"></label>
+            <div class="input-group">
+
+                <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+
                 <input asp-for="CompanyNtNnO" class="form-control" />
                 <span asp-validation-for="CompanyNtNnO" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="CompanyWebsite" class="control-label"></label>
-                <input asp-for="CompanyWebsite" class="form-control" />
-                <span asp-validation-for="CompanyWebsite" class="text-danger"></span>
-            </div>
-            <div class="col-6"> <input type="submit" value="Create" class="btn btn-primary float-right mt-9" /></div>
-            <div class="col-6"><a asp-action="Index" class="btn btn-success mb-9">Back to List</a></div>
-        </form>
-    </div>
-</div>
-<div class="row">
 
+        </div>
+       
+        <div class="form-group">
+            <label asp-for="CompanyWebsite" class="control-label"></label>
+            <input asp-for="CompanyWebsite" class="form-control" />
+            <span asp-validation-for="CompanyWebsite" class="text-danger"></span>
+        </div>
+        <div class="col-6"> <input type="submit" value="Create" class="btn btn-primary float-right mt-9" /></div>
+        <div class="col-6"><a asp-action="Index" class="btn btn-success mb-9">Back to List</a></div>
+    </form>
 </div>
+
+
 
 
 @section Scripts {

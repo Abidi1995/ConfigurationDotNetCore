@@ -1,0 +1,71 @@
+﻿@model IEnumerable<ConfigurationDotNetCore.Models.Orders>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    * {
+        padding:0px;
+        margin:0px;
+        font-family:'Times New Roman';
+    }
+  h1{
+      text-align:center;
+
+  }
+</style>
+
+
+<h1 style="font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif">Details of Orders</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success float-right">Create New</a>
+</p>
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShipperID)
+            </th>
+            <th>
+            
+                <h5>Action</h5>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShipperID)
+            </td>
+            <td>
+                <h4>Action</h4>
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.OrderID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.OrderID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.OrderID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

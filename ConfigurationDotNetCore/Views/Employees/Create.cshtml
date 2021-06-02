@@ -4,65 +4,57 @@
     ViewData["Title"] = "Create";
 }
 
-
-
-<h4> Add An Employee</h4>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<h1 style="font-family:Verdana"> Add An Employee</h1>
 <hr />
+
 <form asp-action="Create">
     <div class="row">
-
-        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 has-feedback">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 form-group has-feedback">
             <label asp-for="EmployeeFullName">Employee Name</label>
-            <div class="form-group form-group-feedback form-group-feedback-left">
-                <input type="text" class="form-control" placeholder="Enter Employee Name" asp-for="EmployeeFullName">
-                <div class="form-control-feedback bg-dark bgwidth ">
-                    <i class="icon-sort-numberic-desc iconwidth"></i>
-                </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-car"></i></span>
+                <input type="text" class="form-control" placeholder="Enter Employee Name" asp-for="FatherName">
             </div>
+
         </div>
         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 has-feedback">
             <label>Father Name</label>
-            <div class="form-group form-group-feedback form-group-feedback-left">
-                <input type="text" class="form-control" placeholder="Enter Father Name" asp-for="FatherName">
-                <div class="form-control-feedback bg-dark">
-                    <i class="icon-sort-numberic-desc "></i>
-                </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" class="form-control" placeholder="Enter Employee Name" asp-for="FatherName">
             </div>
         </div>
         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 has-feedback">
+
             <label>Date of Birth</label>
-            <div class="form-group form-group-feedback form-group-feedback-left">
-                <input type="date" class="form-control" placeholder="Enter Country Name" asp-for="DateOfBirth">
-                <div class="form-control-feedback bg-dark">
-                    <i class="icon-sort-numberic-desc "></i>
-                </div>
+
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="date" class="form-control" placeholder="Enter Employee Name" asp-for="DateOfBirth">
             </div>
+
+
         </div>
         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 has-feedback">
             <label>Email</label>
-            <div class="form-group form-group-feedback form-group-feedback-left">
+       
                 <input type="text" class="form-control" placeholder="Enter Email Address" asp-for="Email">
-                <div class="form-control-feedback bg-dark  ">
-                    <i class="icon-sort-numberic-desc"></i>
-                </div>
-            </div>
+               
+            
         </div>
         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 has-feedback">
             <label>Address</label>
             <div class="form-group form-group-feedback form-group-feedback-left">
                 <input type="text" class="form-control" placeholder="Enter Address" asp-for="Address">
-                <div class="form-control-feedback bg-dark  ">
-                    <i class="icon-sort-numberic-desc"></i>
-                </div>
+              
             </div>
         </div>
         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 has-feedback">
             <label>Age</label>
             <div class="form-group form-group-feedback form-group-feedback-left">
                 <input type="number" class="form-control" placeholder="Enter Age" asp-for="Age">
-                <div class="form-control-feedback bg-dark  ">
-                    <i class="icon-sort-numberic-desc"></i>
-                </div>
+               
             </div>
         </div>
 
@@ -73,8 +65,8 @@
             <a asp-action="Index" class="btn btn-info">Back to List</a>
         </div>
     </div>
-    </form>
+</form>
 
-    @section Scripts {
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    }
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
