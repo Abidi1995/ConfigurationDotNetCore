@@ -8,7 +8,7 @@ namespace ConfigurationDotNetCore.Models
 {
     public class CompanyContext : DbContext
     {
-        public CompanyContext(DbContextOptions<CompanyContext> dbContextOptions) : base(dbContextOptions)//constructor
+        public CompanyContext(DbContextOptions<CompanyContext> Options) : base(Options)//constructor
 
 
         {
@@ -16,7 +16,7 @@ namespace ConfigurationDotNetCore.Models
 
         }
 
-        public DbSet<Employee> Employees { get; set; }//Mapping
+        public DbSet<Employee> Employees { get; set; }//Mapping tables
         public DbSet<Company> Companies { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductDetails> ProductDetails { get; set; }
@@ -27,6 +27,12 @@ namespace ConfigurationDotNetCore.Models
         public DbSet<Purchases> Purchases { get; set; }
         public DbSet<Shippers> Shippers { get; set; }
         public DbSet<Suppliers> Suppliers { get; set; }
+        public DbSet<Library> Libraries { get; set;}
+        public DbSet<LibrarayBookList> LibrarayBookLists { get; set; }
+        public DbSet<LibraryBookRecord> LibraryBookRecords { get; set; }
+        public DbSet<LibraryIssuedBook> LibraryIssuedBooks { get; set; }
+        public DbSet<LibraryIssuedBooksToStaff> LibraryIssuedBooksToStaffs { get; set; }
+        public DbSet<Hostel> Hostels { get; set; }
              
     }
 }

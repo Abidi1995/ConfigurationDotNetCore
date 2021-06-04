@@ -4,14 +4,16 @@ using ConfigurationDotNetCore.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ConfigurationDotNetCore.Migrations
 {
     [DbContext(typeof(CompanyContext))]
-    partial class StudentContextModelSnapshot : ModelSnapshot
+    [Migration("20210604065308_Library")]
+    partial class Library
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -142,96 +144,6 @@ namespace ConfigurationDotNetCore.Migrations
                     b.ToTable("Employees");
                 });
 
-            modelBuilder.Entity("ConfigurationDotNetCore.Models.Hostel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CampusId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("HostelName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Location")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TotalRooms")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TotalStudents")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Hostels");
-                });
-
-            modelBuilder.Entity("ConfigurationDotNetCore.Models.LibrarayBookList", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AccessionNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Author")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ClassificationNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Edition")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("EntryDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsIssuable")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Language")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Pages")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PresentPosition")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Publisher")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Remarks")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Source")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Subject")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("TranslatorCorner")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("VolumeNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("YearOfPublishing")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("LibrarayBookLists");
-                });
-
             modelBuilder.Entity("ConfigurationDotNetCore.Models.Library", b =>
                 {
                     b.Property<int>("ID")
@@ -254,111 +166,6 @@ namespace ConfigurationDotNetCore.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Libraries");
-                });
-
-            modelBuilder.Entity("ConfigurationDotNetCore.Models.LibraryBookRecord", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("EntryDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("LibraryBookListId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("LibraryId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ShelfNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("LibraryBookRecords");
-                });
-
-            modelBuilder.Entity("ConfigurationDotNetCore.Models.LibraryIssuedBook", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("BookCondition")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DueDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("IssuedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("LibraryBookRecordId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Remarks")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ReturnDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("StudentID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserID")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("LibraryIssuedBooks");
-                });
-
-            modelBuilder.Entity("ConfigurationDotNetCore.Models.LibraryIssuedBooksToStaff", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("BookCondition")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DueDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("IssuedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("LibraryBookRecordId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Remarks")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ReturnDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<decimal>("StaffID")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("UserID")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("LibraryIssuedBooksToStaffs");
                 });
 
             modelBuilder.Entity("ConfigurationDotNetCore.Models.OrderDetails", b =>

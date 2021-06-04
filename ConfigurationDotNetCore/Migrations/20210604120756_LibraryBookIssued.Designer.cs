@@ -4,14 +4,16 @@ using ConfigurationDotNetCore.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ConfigurationDotNetCore.Migrations
 {
     [DbContext(typeof(CompanyContext))]
-    partial class StudentContextModelSnapshot : ModelSnapshot
+    [Migration("20210604120756_LibraryBookIssued")]
+    partial class LibraryBookIssued
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -140,33 +142,6 @@ namespace ConfigurationDotNetCore.Migrations
                     b.HasIndex("OrdersOrderID");
 
                     b.ToTable("Employees");
-                });
-
-            modelBuilder.Entity("ConfigurationDotNetCore.Models.Hostel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CampusId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("HostelName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Location")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TotalRooms")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TotalStudents")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Hostels");
                 });
 
             modelBuilder.Entity("ConfigurationDotNetCore.Models.LibrarayBookList", b =>
@@ -323,42 +298,6 @@ namespace ConfigurationDotNetCore.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("LibraryIssuedBooks");
-                });
-
-            modelBuilder.Entity("ConfigurationDotNetCore.Models.LibraryIssuedBooksToStaff", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("BookCondition")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DueDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("IssuedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("LibraryBookRecordId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Remarks")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ReturnDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<decimal>("StaffID")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("UserID")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("LibraryIssuedBooksToStaffs");
                 });
 
             modelBuilder.Entity("ConfigurationDotNetCore.Models.OrderDetails", b =>
