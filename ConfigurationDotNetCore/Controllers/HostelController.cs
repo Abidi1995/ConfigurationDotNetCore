@@ -70,7 +70,29 @@ namespace ConfigurationDotNetCore.Controllers
 
                 return ex.Message;
             }
+            
         }
-        public A
+        public ActionResult Delete(int id)
+        {
+            var del = _context.Hostels.Where(h => h.Id == id).FirstOrDefault();
+            return View(del);
+        }
+        public string Delete(Hostel hostel)
+        {
+            string message = string.Empty;
+            try
+            {
+                hostel = _context.Hostels.Find(hostel.Id);
+                _context.Hostels.Remove(hostel);
+                _context.SaveChanges();
+            }
+            catch (Exception  ex)
+            {
+
+                return ex.Message;
+            }
+            return "Message";
+        }
+       
     }
 }

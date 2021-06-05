@@ -33,6 +33,7 @@ namespace ConfigurationDotNetCore.Models
         public DbSet<LibraryIssuedBook> LibraryIssuedBooks { get; set; }
         public DbSet<LibraryIssuedBooksToStaff> LibraryIssuedBooksToStaffs { get; set; }
         public DbSet<Hostel> Hostels { get; set; }
+        public DbSet<Rooms> Rooms { get; set; }
              
     }
 }
