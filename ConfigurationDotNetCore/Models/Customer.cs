@@ -9,7 +9,7 @@ namespace ConfigurationDotNetCore.Models
     public class Customer
     {
         [Key]
-        public int Id{ get; set; }
+        public int CustomerId{ get; set; }
         [Required(ErrorMessage ="Plz Enter Customer Name")]
         public string CustomerName{ get; set; }
         public string ContactNo { get; set; }

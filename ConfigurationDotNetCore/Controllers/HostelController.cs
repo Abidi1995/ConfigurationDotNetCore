@@ -18,7 +18,8 @@ namespace ConfigurationDotNetCore.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var hostellist = _context.Hostels.ToList();
+            return View(hostellist);
         }
         public string AddHostel(Hostel hostel)
         {
@@ -44,32 +45,24 @@ namespace ConfigurationDotNetCore.Controllers
             return View(hedit);
 
         }
-        public string EditHostel(Hostel hostel)
+        public ActionResult EditHostel(Hostel hostel)
         {
             var findh = _context.Hostels.Find(hostel.Id);
             if (findh != null)
             {
-                hostel.HostelName = findh.HostelName;
-                hostel.Location = findh.Location;
-                hostel.TotalRooms = findh.TotalRooms;
-                hostel.TotalStudents = findh.TotalStudents;
-                hostel.CampusId = findh.CampusId;
-                return "edit";
-            }
-            else
-            {
-                return "failed";
-            }
-            try
-            {
-                _context.SaveChanges();
+                findh.HostelName = hostel.HostelName;
+                findh.Location = hostel.Location;
+                findh.TotalRooms = hostel.TotalStudents;
+                findh.TotalStudents = hostel.TotalStudents;
+
+                return RedirectToAction("Index");
+
+
 
             }
-            catch (Exception ex)
-            {
+            return View();
 
-                return ex.Message;
-            }
+          
             
         }
         public ActionResult Delete(int id)

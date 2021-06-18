@@ -1,0 +1,67 @@
+﻿@model ConfigurationDotNetCore.Models.Visitors
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Visitors</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimeIn" class="control-label"></label>
+                <input asp-for="TimeIn" class="form-control" />
+                <span asp-validation-for="TimeIn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimeOut" class="control-label"></label>
+                <input asp-for="TimeOut" class="form-control" />
+                <span asp-validation-for="TimeOut" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Relationship" class="control-label"></label>
+                <input asp-for="Relationship" class="form-control" />
+                <span asp-validation-for="Relationship" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cnic" class="control-label"></label>
+                <input asp-for="Cnic" class="form-control" />
+                <span asp-validation-for="Cnic" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HostleAdmId" class="control-label"></label>
+                <input asp-for="HostleAdmId" class="form-control" />
+                <span asp-validation-for="HostleAdmId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HostelId" class="control-label"></label>
+                <select asp-for="HostelId" class ="form-control" asp-items="ViewBag.HostelId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

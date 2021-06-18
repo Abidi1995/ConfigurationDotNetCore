@@ -2,9 +2,11 @@
 
 @{
     ViewData["Title"] = "Create";
+    
 }
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 <h1 style="font-family:Verdana"> Add An Employee</h1>
 <hr />
 
@@ -14,7 +16,7 @@
             <label asp-for="EmployeeFullName">Employee Name</label>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-car"></i></span>
-                <input type="text" class="form-control" placeholder="Enter Employee Name" asp-for="FatherName">
+                <input type="text" class="form-control" placeholder="Enter Employee Name" asp-for="EmployeeFullName" required>
             </div>
 
         </div>
@@ -38,26 +40,53 @@
         </div>
         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 has-feedback">
             <label>Email</label>
-       
-                <input type="text" class="form-control" placeholder="Enter Email Address" asp-for="Email">
-               
-            
+
+            <input type="text" class="form-control" placeholder="Enter Email Address" asp-for="Email">
+
+
         </div>
         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 has-feedback">
             <label>Address</label>
             <div class="form-group form-group-feedback form-group-feedback-left">
                 <input type="text" class="form-control" placeholder="Enter Address" asp-for="Address">
-              
+
             </div>
         </div>
         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 has-feedback">
             <label>Age</label>
             <div class="form-group form-group-feedback form-group-feedback-left">
-                <input type="number" class="form-control" placeholder="Enter Age" asp-for="Age">
-               
+                <input type="number" class="form-control" placeholder="Enter Age" asp-for="Age">5511    52q
+
             </div>
         </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 has-feedback">
+            <label>Mobile</label>
+            <div class="form-group form-group-feedback form-group-feedback-left">
+                <input type="number" class="form-control" placeholder="Enter Mobile Phone" asp-for="Mobile" maxlength="11">
 
+            </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 has-feedback">
+            <label>Notes</label>
+            <div class="form-group form-group-feedback form-group-feedback-left">
+                <input type="text" class="form-control" placeholder="Enter Some Notes" asp-for="Notes">
+
+            </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 has-feedback">
+            <label>Salary</label>
+            <div class="form-group form-group-feedback form-group-feedback-left">
+                <input type="text" class="form-control" placeholder="Enter Salary " asp-for="Salary">
+
+            </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 has-feedback">
+            <label>Shift</label>
+            <div class="form-group form-group-feedback form-group-feedback-left">
+                <input type="text" class="form-control" placeholder="Enter Shift " asp-for="Shift">
+
+            </div>
+        </div>
     </div>
     <div class="row">
         <div class="col-12 ">

@@ -7,7 +7,7 @@ namespace ConfigurationDotNetCore.Models
 {
     public class Library
     {
-        public int ID{ get; set; }
+        public int LibraryID{ get; set; }
         public string LibraryName{ get; set; }
         public string Code { get; set;}
         public DateTime OpeningTime { get; set; }

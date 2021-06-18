@@ -9,7 +9,7 @@ namespace ConfigurationDotNetCore.Models
     public class Company
     {
         [Key]
-        public int Id { get; set; }
+        public int CompanyId { get; set; }
         [Required(ErrorMessage = "Plz Enter Company Name")]
         public string CompanyName { get; set; }
         [Required(ErrorMessage = "Plz Enter Registeration No Name")]

@@ -7,7 +7,7 @@ namespace ConfigurationDotNetCore.Models
 {
     public class Campus
     {
-        public int ID { get; set; }
+        public int CampusID { get; set; }
         public string CampusName { get; set; }
         public string MailingName { get; set; }
         public string Address { get; set; }
@@ -15,5 +15,7 @@ namespace ConfigurationDotNetCore.Models
         public string Mobile { get; set; }
         public string EmailId { get; set; }
         public string Web { get; set; }
+        public string Password { get; set; }
+
     }
 }

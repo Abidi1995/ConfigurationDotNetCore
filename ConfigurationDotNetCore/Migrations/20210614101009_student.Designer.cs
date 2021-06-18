@@ -4,14 +4,16 @@ using ConfigurationDotNetCore.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ConfigurationDotNetCore.Migrations
 {
     [DbContext(typeof(CompanyContext))]
-    partial class StudentContextModelSnapshot : ModelSnapshot
+    [Migration("20210614101009_student")]
+    partial class student
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,9 +68,6 @@ namespace ConfigurationDotNetCore.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Mobile")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")

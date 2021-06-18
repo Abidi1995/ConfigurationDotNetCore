@@ -17,7 +17,8 @@ namespace ConfigurationDotNetCore.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            var LibraryList = _context.Libraries.ToList();
+            return View(LibraryList);
         }
         //Create Library
         [HttpPost]

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ConfigurationDotNetCore.Models.Library>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    h1{
+        font-family:Algerian;
+        text-align:center;
+    }
+</style>
+<h1>List of Library</h1>
+
+<p>
+   
+</p>
+<table class="table table-hover table-light table-striped">
+    <thead class="thead-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LibraryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OpeningTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClosingTime)
+            </th>
+            <th> <a asp-action="Create" class="btn btn-secondary btn-block">Add Library</a></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LibraryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OpeningTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClosingTime)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-info">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID" class="btn btn-secondary">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

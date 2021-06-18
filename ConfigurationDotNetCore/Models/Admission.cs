@@ -7,8 +7,9 @@ namespace ConfigurationDotNetCore.Models
 {
     public class Admission
     {
+
         public bool IsExpell { get; set; }
-        public int ID { get; set; }
+        public int AdmissionID { get; set; }
         public int ClassSectionID { get; set; }
         public int StudentID { get; set; }
         public decimal Session { get; set; }

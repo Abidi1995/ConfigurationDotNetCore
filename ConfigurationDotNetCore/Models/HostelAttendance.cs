@@ -7,7 +7,7 @@ namespace ConfigurationDotNetCore.Models
 {
     public class HostelAttendance
     {
-        public int Id { get; set; }
+        public int HostelAttendanceId { get; set; }
         public DateTime Date { get; set; }
         public int AttendanceTypeId { get; set; }
         public int HostelId { get; set; }

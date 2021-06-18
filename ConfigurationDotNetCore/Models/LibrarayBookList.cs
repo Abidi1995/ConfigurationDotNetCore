@@ -7,7 +7,7 @@ namespace ConfigurationDotNetCore.Models
 {
     public class LibrarayBookList
     {
-        public int ID{ get; set; }
+        public int LibrayBookListID{ get; set; }
         public string AccessionNo{ get; set; }
         public string ClassificationNo{ get; set; }
         public string Title{ get; set; }

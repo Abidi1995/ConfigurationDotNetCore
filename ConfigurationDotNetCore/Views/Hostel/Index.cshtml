@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ConfigurationDotNetCore.Models.Hostel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Hostel Lists</h1>
+
+<p>
+    <a asp-action="AddHostel" class="btn btn-dark">Add Hostel</a>
+</p>
+<table class="table table-dark table-bordered" >
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HostelName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalRooms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalStudents)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CampusId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HostelName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalRooms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalStudents)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CampusId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

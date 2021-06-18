@@ -37,7 +37,9 @@ namespace ConfigurationDotNetCore.Models
         public DbSet<Visitors> Visitors { get; set; }
         public DbSet<Admission> Admissions { get; set;}
         public DbSet<HostelAdmission> HostelAdmissions { get; set; }
-
+        public DbSet<Categories> Categories { get; set; }
+        public DbSet<Campus> Campuses { get; set;}
+        public DbSet<Student> Students { get; set;}
              
     }
 }

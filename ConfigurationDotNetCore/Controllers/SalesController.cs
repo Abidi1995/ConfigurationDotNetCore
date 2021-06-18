@@ -63,12 +63,12 @@ namespace ConfigurationDotNetCore.Controllers
 
         }
         [HttpPost]
-        public string DeleteSales(Sales sales)
+        public ActionResult DeleteSales(Sales sales)
         {
             var desale = _context.Sales.Find(sales.SalesID);
             _context.Sales.Remove(desale);
             _context.SaveChanges();
-            return "true";
+            return RedirectToAction("Index");
         }
 
     }

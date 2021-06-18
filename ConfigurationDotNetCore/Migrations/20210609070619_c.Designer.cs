@@ -4,14 +4,16 @@ using ConfigurationDotNetCore.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ConfigurationDotNetCore.Migrations
 {
     [DbContext(typeof(CompanyContext))]
-    partial class StudentContextModelSnapshot : ModelSnapshot
+    [Migration("20210609070619_c")]
+    partial class c
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,42 +46,6 @@ namespace ConfigurationDotNetCore.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Admissions");
-                });
-
-            modelBuilder.Entity("ConfigurationDotNetCore.Models.Campus", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CampusName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EmailId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MailingName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Mobile")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Web")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Campuses");
                 });
 
             modelBuilder.Entity("ConfigurationDotNetCore.Models.Categories", b =>
@@ -677,60 +643,6 @@ namespace ConfigurationDotNetCore.Migrations
                     b.HasKey("ShippersID");
 
                     b.ToTable("Shippers");
-                });
-
-            modelBuilder.Entity("ConfigurationDotNetCore.Models.Student", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CNIC")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Domicile")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FatherCnic")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FatherName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FatherOccupation")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Gender")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MobileNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MotherName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PresentAddress")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Qualification")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RollNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("StudentName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Students");
                 });
 
             modelBuilder.Entity("ConfigurationDotNetCore.Models.StudentAttendance", b =>

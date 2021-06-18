@@ -1,0 +1,227 @@
+﻿@model IEnumerable<ConfigurationDotNetCore.Models.Campus>
+
+
+<h1>All Campus List</h1>
+
+@*<p>
+        <a asp-action="Create" class="btn btn-danger">Add New Campus</a>
+    </p>*@
+
+
+
+<!-- Button trigger modal -->
+<p>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Create A Campus
+    </button>
+</p>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Campus</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <section class="content">
+                    
+                        <div class="row">
+
+                            <div class="col-12 ">
+                                <div class="card border-top-primary border-left-primary">
+                                    <div class="card-header bg-white header-elements-inline">
+                                        <h3 class="card-title titlefix">Create Campus</h3>
+                                        <div class="header-elements">
+                                            <div class="list-icons">
+                                                <a class="list-icons-item" data-action="collapse"></a>
+                                                <a class="list-icons-item ui-sortable-handle" data-action="move"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <div class="Container">
+                                            <form method="post" asp-action="Create" asp-controller="Compus">
+                                                <div class="row ">
+                                                    <div class="col-12 col-lg-4 col-xl-4 col-md-12 col-sm-12 has-feedback">
+                                                        <label>Campus Name</label>
+                                                        <div class="form-group form-group-feedback form-group-feedback-left">
+                                                            <input class="form-control has-feedback-left" type="text" name="CampusName">
+                                                            <div class="form-control-feedback bg-dark bgwidth">
+                                                                <i class="icon-city iconwidth"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-lg-4 col-xl-4 col-md-4 col-sm-12 has-feedback">
+                                                        <label>Address</label>
+                                                        <div class="form-group form-group-feedback form-group-feedback-left">
+                                                            <input class="form-control has-feedback-left" type="text" name="Address">
+
+
+                                                            <div class="form-control-feedback bg-dark bgwidth">
+                                                                <i class="icon-address-book2 iconwidth"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-lg-4 col-xl-4 col-md-4 col-sm-12 has-feedback">
+                                                        <label> Mailing Name</label>
+                                                        <div class="form-group form-group-feedback form-group-feedback-left">
+                                                            <input class="form-control has-feedback-left" type="text" value="" name="MailingName">
+
+                                                            <div class="form-control-feedback bg-dark bgwidth">
+                                                                <i class="icon-address-book2 iconwidth"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-lg-4 col-xl-4 col-md-4 col-sm-12 has-feedback">
+                                                        <label>Phone</label>
+                                                        <div class="form-group form-group-feedback form-group-feedback-left">
+                                                            <input class="form-control has-feedback-left" type="text" value="" name="Phone">
+
+
+                                                            <div class="form-control-feedback bg-dark bgwidth">
+                                                                <i class="icon-phone iconwidth"></i>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-12 col-lg-4 col-xl-4 col-md-4 col-sm-12 has-feedback">
+                                                        <label>Mobile</label>
+                                                        <div class="form-group form-group-feedback form-group-feedback-left">
+                                                            <input class="form-control has-feedback-left" type="text" value="" name="Mobile">
+
+                                                            <div class="form-control-feedback bg-dark bgwidth">
+                                                                <i class="icon-mobile iconwidth"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-lg-4 col-xl-4 col-md-4 col-sm-12 has-feedback">
+                                                        <label>Web</label>
+                                                        <div class="form-group form-group-feedback form-group-feedback-left">
+                                                            <input class="form-control has-feedback-left" type="text" value="" name="Web">
+
+
+
+                                                            <div class="form-control-feedback bg-dark bgwidth">
+                                                                <i class="icon-screen3 iconwidth"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+
+                                                    <div class="col-12 col-lg-4 col-xl-4 col-md-4 col-sm-12 has-feedback">
+                                                        <label>Email </label>
+                                                        <div class="form-group form-group-feedback form-group-feedback-left">
+                                                            <input type="text" class="form-control has-ficonwidtheedback-left" name="EmailId">
+
+                                                            <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                                                            <div class="form-control-feedback bg-dark bgwidth">
+                                                                <i class="icon-envelop iconwidth"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-lg-4 col-xl-4 col-md-4 col-sm-12 has-feedback">
+                                                        <label>Password </label>
+                                                        <div class="form-group form-group-feedback form-group-feedback-left">
+                                                            <input type="password" name="password" minlength="7" class="form-control has-feedback-left" required="">
+
+                                                            <span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+                                                          
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary">Save changes</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                </section>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered table-danger">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CampusName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MailingName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mobile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Web)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CampusName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MailingName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Web)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem=>item.Password)
+            </td>
+            <td>
+                <a asp-action="EditCampus" asp-route-id="@item.ID" class="btn btn-info"onclick="confirm('');">Edit</a> |
+               |
+                <a asp-action="DeleteCampus" asp-route-id="@item.ID" class="btn btn-danger"onclick="return confirm('hhhh');">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

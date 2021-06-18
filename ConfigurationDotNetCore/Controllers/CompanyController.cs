@@ -17,8 +17,9 @@ namespace ConfigurationDotNetCore.Controllers
         }
 
         public async Task<IActionResult> Index()
-        {
-            return View( await objemp.Companies.ToListAsync());
+        { 
+            return View(await objemp.Companies.ToListAsync());
+            
         }
         public IActionResult Create()
         {
@@ -37,83 +38,56 @@ namespace ConfigurationDotNetCore.Controllers
             return View(company);
 
         }
-        //public async Task<IActionResult> Edit(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    var company = await objemp.Companies.FindAsync(id);
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return View(company);
+        [HttpGet]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(int id)
+        {
+            var edit = objemp.Companies.Where(b => b.CompanyId == id).FirstOrDefault();
+            return View(edit);
         }
-        //public async Task<IActionResult> Edit(int id, [Bind("CompanyName", "RegisterationNo", "CompanyType", " Address", "NoOfEmployees", "CompanyNtNnO", "CompanyWebsite")] Company company)
-        //{
-        //    if (id != company.Id)
-        //    {
-        //        return NotFound();
-        //    }
+        [HttpPost]
+        public IActionResult Edit(Company company)
+        {
+            var CEdit = objemp.Companies.Find(company.CompanyId);
+            if (CEdit != null)
+            {
 
-        //    if (ModelState.IsValid)
-        //    {
-        //        try
-        //        {
-        //            objemp.Update(company);
-        //            await objemp.SaveChangesAsync();
-        //        }
-        //        catch (DbUpdateConcurrencyException)
-        //        {
-        //            if (!CompanyExists(company.Id))
-        //            {
-        //                return NotFound();
-        //            }
-        //            else
-        //            {
-        //                throw;
-        //            }
-        //        }
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    return View(company);
+                CEdit.NoOfEmployees = company.NoOfEmployees;
+                CEdit.RegisterationNo = company.RegisterationNo;
+                CEdit.CompanyType = company.CompanyType;
+                CEdit.CompanyNtNnO = company.CompanyNtNnO;
+                CEdit.CompanyWebsite = company.CompanyWebsite;
+                CEdit.Address = company.Address;
+                objemp.Companies.Update(CEdit);
+                objemp.SaveChanges();
+                return RedirectToAction("Index");
 
-        //}
-       
-        //public async Task<IActionResult> Delete(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
+            }
+            return View();
 
-        //    var company = await objemp.Companies
-        //        .FirstOrDefaultAsync(m => m.Id == id);
-        //    if (company == null)
-        //    {
-        //        return NotFound();
-        //    }
 
-        //    return View(company);
+        }
+        [HttpGet]
 
-        //}
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> DeleteConfirmed(int id)
-        //{
-        //    var company = await objemp.Companies.FindAsync(id);
-        //     objemp.Remove(company);
-        //    await objemp.SaveChangesAsync();
-        //    return RedirectToAction(nameof(Index));
+        public ActionResult Delete(int id)
+        {
+            var Delete_Company = objemp.Companies.Where(a => a.CompanyId == id).FirstOrDefault();
+            return View(Delete_Company);
+        }
+        public ActionResult Delete(Company company)
+        {
+            var Delete_company = objemp.Companies.Find(company.CompanyId);
+            if (Delete_company != null)
+            {
+                objemp.Companies.Remove(Delete_company);
+                objemp.SaveChanges();
+            }
+            return RedirectToAction("Index");
 
-        //}
 
-        //private bool CompanyExists(int id)
-        //{
-        //    return objemp.Companies.Any(e => e.Id == id);
-        //}
+        }
 
     }
+}
 
 
