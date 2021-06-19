@@ -217,9 +217,9 @@
                 @Html.DisplayFor(modelItem=>item.Password)
             </td>
             <td>
-                <a asp-action="EditCampus" asp-route-id="@item.ID" class="btn btn-info"onclick="confirm('');">Edit</a> |
+                <a asp-action="EditCampus" asp-route-id="@item.CampusID" class="btn btn-info"onclick="confirm('');">Edit</a> |
                |
-                <a asp-action="DeleteCampus" asp-route-id="@item.ID" class="btn btn-danger"onclick="return confirm('hhhh');">Delete</a>
+                <a asp-action="DeleteCampus" asp-route-id="@item.CampusID" class="btn btn-danger"onclick="return confirm('hhhh');">Delete</a>
             </td>
         </tr>
         }

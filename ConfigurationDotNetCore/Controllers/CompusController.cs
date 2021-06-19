@@ -43,7 +43,7 @@ namespace ConfigurationDotNetCore.Controllers
         [HttpGet]
         public IActionResult EditCampus(int id)
         {
-            var edit = _context.Campuses.Where(a => a.ID == id).FirstOrDefault();
+            var edit = _context.Campuses.Where(a => a.CampusID == id).FirstOrDefault();
             return View(edit);
 
         }
@@ -51,7 +51,7 @@ namespace ConfigurationDotNetCore.Controllers
 
         public IActionResult EditCampus(Campus campus)
         {
-            var camInDb = _context.Campuses.Find(campus.ID);
+            var camInDb = _context.Campuses.Find(campus.CampusID);
             if (camInDb != null)
             {
                   camInDb.CampusName= campus.CampusName;
@@ -76,13 +76,13 @@ namespace ConfigurationDotNetCore.Controllers
         [HttpGet]
         public IActionResult DeleteCampus(int id)
         {
-            var delCampus = _context.Campuses.Where(h => h.ID == id).FirstOrDefault();
+            var delCampus = _context.Campuses.Where(h => h.CampusID == id).FirstOrDefault();
             return View(delCampus);
         }
         [HttpPost]
         public IActionResult DeleteCampus(Campus campus)
         {
-            var DbCam = _context.Campuses.Find(campus.ID);
+            var DbCam = _context.Campuses.Find(campus.CampusID);
             if (DbCam != null)
             {
                 _context.Campuses.Remove(DbCam);

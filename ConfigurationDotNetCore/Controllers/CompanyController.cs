@@ -49,7 +49,7 @@ namespace ConfigurationDotNetCore.Controllers
         public IActionResult Edit(Company company)
         {
             var CEdit = objemp.Companies.Find(company.CompanyId);
-            if (CEdit != null)
+            if (CEdit !=null)
             {
 
                 CEdit.NoOfEmployees = company.NoOfEmployees;
@@ -61,6 +61,11 @@ namespace ConfigurationDotNetCore.Controllers
                 objemp.Companies.Update(CEdit);
                 objemp.SaveChanges();
                 return RedirectToAction("Index");
+
+            }
+            else
+            {
+                
 
             }
             return View();

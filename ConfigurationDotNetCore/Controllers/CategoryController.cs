@@ -22,8 +22,8 @@ namespace ConfigurationDotNetCore.Controllers
         public IActionResult Index()
         {
 
-            var listCategries = _context.Categories.ToList();
-            return View();
+            var ListCategries = _context.Categories.ToList();
+            return View(ListCategries);
         }
         public string CreateCategory(Categories categories)
 

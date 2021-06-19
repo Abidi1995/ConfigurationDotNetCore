@@ -41,13 +41,13 @@ namespace ConfigurationDotNetCore.Controllers
         }
         public ActionResult EditHostel(int id)
         {
-            var hedit = _context.Hostels.Where(h => h.Id==id).FirstOrDefault();
+            var hedit = _context.Hostels.Where(h => h.HostelId==id).FirstOrDefault();
             return View(hedit);
 
         }
         public ActionResult EditHostel(Hostel hostel)
         {
-            var findh = _context.Hostels.Find(hostel.Id);
+            var findh = _context.Hostels.Find(hostel.HostelId);
             if (findh != null)
             {
                 findh.HostelName = hostel.HostelName;
@@ -67,15 +67,15 @@ namespace ConfigurationDotNetCore.Controllers
         }
         public ActionResult Delete(int id)
         {
-            var del = _context.Hostels.Where(h => h.Id == id).FirstOrDefault();
+            var del = _context.Hostels.Where(h => h.HostelId == id).FirstOrDefault();
             return View(del);
         }
         public string Delete(Hostel hostel)
         {
-            string message = string.Empty;
+            string Message = string.Empty;
             try
             {
-                hostel = _context.Hostels.Find(hostel.Id);
+                hostel = _context.Hostels.Find(hostel.HostelId);
                 _context.Hostels.Remove(hostel);
                 _context.SaveChanges();
             }

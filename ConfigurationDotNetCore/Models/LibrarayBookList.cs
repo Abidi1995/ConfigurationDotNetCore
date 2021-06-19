@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,6 +8,7 @@ namespace ConfigurationDotNetCore.Models
 {
     public class LibrarayBookList
     {
+        [Key]
         public int LibrayBookListID{ get; set; }
         public string AccessionNo{ get; set; }
         public string ClassificationNo{ get; set; }

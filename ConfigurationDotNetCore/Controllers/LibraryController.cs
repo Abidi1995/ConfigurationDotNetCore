@@ -42,13 +42,13 @@ namespace ConfigurationDotNetCore.Controllers
         [HttpGet]
         public ActionResult EditLibrary(int id)
         {
-            var editLib = _context.Libraries.Where(h => h.ID == id).FirstOrDefault();
+            var editLib = _context.Libraries.Where(h => h.LibraryID == id).FirstOrDefault();
             return View(editLib);
         }
         [HttpPost]//post method of edit
         public string EditLibary(Library library)
         {
-            var edit = _context.Libraries.Find(library.ID);
+            var edit = _context.Libraries.Find(library.LibraryID);
             if (edit != null)//check for null 
             {
                 edit.LibraryName = library.LibraryName;
@@ -68,13 +68,13 @@ namespace ConfigurationDotNetCore.Controllers
         // Delete method for library
         public ActionResult DeleteLibrary(int id)
         {
-            var delete = _context.Libraries.Where(h => h.ID == id).FirstOrDefault();//Compairing Id
+            var delete = _context.Libraries.Where(h => h.LibraryID == id).FirstOrDefault();//Compairing Id
             return View(delete);
         }
         [HttpPost]
         public string DeleteLibrary(Library library)
         {
-            var find = _context.Libraries.Find(library.ID);
+            var find = _context.Libraries.Find(library.LibraryID);
             if (find != null)
             {
                 _context.Libraries.Remove(find);
@@ -91,12 +91,12 @@ namespace ConfigurationDotNetCore.Controllers
         [HttpGet]
         public ActionResult EditBookList(int id)
         {
-            var Blist = _context.Libraries.Where(h => h.ID == id).FirstOrDefault();
+            var Blist = _context.Libraries.Where(h => h.LibraryID == id).FirstOrDefault();
             return View(Blist);
         }
         public string EditBookList(LibrarayBookList list)
         {
-            var EditList = _context.LibrarayBookLists.Find(list.ID);
+            var EditList = _context.LibrarayBookLists.Find(list.LibrayBookListID);
             if (EditList != null)
             {
                 EditList.AccessionNo = list.AccessionNo;

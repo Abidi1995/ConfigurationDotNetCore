@@ -48,7 +48,7 @@ namespace ConfigurationDotNetCore.Controllers
         {
             ViewBag.HotelName = new SelectList(_context.Hostels, "id", "HostelName");
             var getData = _context.Visitors.Where(n => n.HostelId==id).FirstOrDefault();
-            ViewBag.RegNo = _context.HostelAdmissions.Where(a => a.Id == getData.HostleAdmId).Select(s => s.Admission.StudentID == id).FirstOrDefault();
+            ViewBag.RegNo = _context.HostelAdmissions.Where(a => a.HostelId == getData.HostleAdmId).Select(s => s.Admission.StudentID == id).FirstOrDefault();
             return View(getData);
 
         }

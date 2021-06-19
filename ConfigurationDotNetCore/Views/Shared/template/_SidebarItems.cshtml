@@ -1,0 +1,588 @@
+﻿@using static school.Helpers.NavigationIndicatorHelper;
+<!-- Main navigation -->
+<div class="card card-sidebar-mobile">
+    <ul class="nav nav-sidebar" data-nav-type="accordion">
+
+        <!-- Main -->
+        <li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Main</div> <i class="icon-menu" title="Main"></i></li>
+        <li class="nav-item">
+            <a asp-controller="Home" asp-action="Index" class="nav-link  @Url.MakeActiveClass("home","index")">
+                <i class="icon-home4"></i>
+                <span>
+                    Dashboard
+                </span>
+            </a>
+        </li>
+
+        <li class="nav-item nav-item-submenu @Url.MakeOpenClass("configuration")">
+            <a href="#" class="nav-link  @Url.MakeActiveClass("configuration","")">
+                <i class="icon-user"></i> <span>Admin</span>
+            </a>
+
+            <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+
+                <li class="nav-item">
+                    <a asp-controller="Admin" asp-action="CreateCampus" class="nav-link">Create Campus</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Admin" asp-action="EditSchool" class="nav-link">Edit School</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Admin" asp-action="ApproveApp" class="nav-link active">Approve App</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Admin" asp-action="feepaymentMethod" class="nav-link">Fee Slip Payment Method</a>
+                </li>
+                <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link">Users</a>
+                    <ul class="nav nav-group-sub">
+                        <li class="nav-item"><a asp-controller="Users" asp-action="Index" class="nav-link">Application User</a></li>
+                        <li class="nav-item"><a asp-controller="Users" asp-action="Authentications" class="nav-link">User Privileges</a></li>
+                        <li class="nav-item"><a asp-controller="Users" asp-action="RoleList" class="nav-link">Application Roles</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link">Setting</a>
+                    <ul class="nav nav-group-sub">
+                        <li class="nav-item"><a asp-controller="ApplicationConfiguration" asp-action="NewAcademicSession" class="nav-link">Academic Session</a></li>
+                        <li class="nav-item"><a href="javascript:RebuildIndex()" class="nav-link">Rebuild Index</a></li>
+                        <li class="nav-item"><a asp-controller="ApplicationConfiguration" asp-action="Create" class="nav-link">Configuration</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="UploadData" asp-action="Index" class="nav-link">Upload Data</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="StudentReports" asp-action="ParentsList" class="nav-link">Parents List</a>
+                </li>
+            </ul>
+        </li>
+
+
+        <li class="nav-item nav-item-submenu @Url.MakeOpenClass("configuration")">
+            <a href="#" class="nav-link  @Url.MakeActiveClass("configuration","")">
+                <i class="icon-user-tie"></i> <span>Student</span>
+            </a>
+
+            <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                <li class="nav-item">
+                    <a asp-controller="Students" asp-action="Create" class="nav-link active">Add New Student</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Students" asp-action="Studentview" class="nav-link">View Students</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Students" asp-action="Promote" class="nav-link">Promote Student</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Students" asp-action="searchbycontact" class="nav-link">Search By Contact</a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item nav-item-submenu @Url.MakeOpenClass("configuration")">
+            <a href="#" class="nav-link  @Url.MakeActiveClass("configuration","")">
+                <i class="icon-cash"></i> <span>Fee</span>
+            </a>
+            <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                <li class="nav-item">
+                    <a asp-controller="Fee" asp-action="ClassfeeIndex" class="nav-link">Class Fee Group</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Fee" asp-action="FeestructIndex" class="nav-link">Fee Structure</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Fee" asp-action="FeeSlipIndex" class="nav-link">Monthly Fee Entry</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Fee" asp-action="AdvanceFee" class="nav-link">Individual Fee Entry</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Fee" asp-action="EditFeeIndex" class="nav-link">Edit Student Fee</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Fee" asp-action="DiscountorFine" class="nav-link">Discount or Fine</a>
+                </li>
+
+                <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link">Received Fee</a>
+                    <ul class="nav nav-group-sub">
+                        <li class="nav-item">
+                            <a asp-controller="Fee" asp-action="RecieveFee" class="nav-link">By Reg No</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="Fee" asp-action="RecieveFeeByIndividualStd" class="nav-link">By Individual Student </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </li>
+        <li class="nav-item nav-item-submenu @Url.MakeOpenClass("configuration")">
+            <a href="#" class="nav-link  @Url.MakeActiveClass("configuration","")">
+                <i class="icon-clipboard3"></i> <span>Exams</span>
+            </a>
+
+            <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                <li class="nav-item">
+                    <a asp-controller="Exams" asp-action="NewExamHelds" class="nav-link active">Add New Exam</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Exams" asp-action="DateSheetEntry" class="nav-link active">Date Sheet Entry</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Results" asp-action="Create" class="nav-link active">Add Results</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Results" asp-action="Edit" class="nav-link active">Edit Result</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Results" asp-action="AddExamRemarks" class="nav-link active">Add Student Remarks</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Exams" asp-action="RemarkConfiguration" class="nav-link active">Remarks Configuration</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Exams" asp-action="ResultmissingStudent" class="nav-link active">Result Missing Exams</a>
+                </li>
+            </ul>
+        </li>
+
+
+        <li class="nav-item nav-item-submenu @Url.MakeOpenClass("configuration")">
+            <a href="#" class="nav-link  @Url.MakeActiveClass("configuration","")">
+                <i class="icon-user-check"></i> <span>Attendence</span>
+            </a>
+
+            <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                <li class="nav-item">
+                    <a asp-controller="Attendance" asp-action="AttendanceByClass" class="nav-link">Attendence By Class</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Attendance" asp-action="AttendanceByRegNos" class="nav-link">Attendence By Registration No</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Attendance" asp-action="AttendanceBySelectedClass" class="nav-link">Attendence By Selected Class</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Attendance" asp-action="EditStudentAttendance" class="nav-link">Edit Student Attendance</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Attendance" asp-action="StaffAttendance" class="nav-link"> Staff Attendance</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Attendance" asp-action="EditStaffAttendance" class="nav-link">Edit Staff Attendance</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Attendance" asp-action="StaffShortLeave" class="nav-link"> Staff Short Leave</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Attendance" asp-action="StudentAttendance" class="nav-link"> Student Attendance</a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav-item nav-item-submenu @Url.MakeOpenClass("configuration")">
+            <a href="#" class="nav-link  @Url.MakeActiveClass("configuration","")">
+                <i class="icon-office"></i> <span>ClassManagement</span>
+            </a>
+
+            <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                <li class="nav-item">
+                    <a asp-controller="ClassManagement" asp-action="ClassSection" class="nav-link active">New Class Section</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="ClassManagement" asp-action="ClassSubject" class="nav-link active">New Class Subject</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="ClassManagement" asp-action="changeclasssections" class="nav-link active">Change Class Section</a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav-item nav-item-submenu @Url.MakeOpenClass("configuration")">
+            <a href="#" class="nav-link  @Url.MakeActiveClass("configuration","")">
+                <i class="icon-city"></i> <span>Hostel</span>
+            </a>
+
+            <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                <li class="nav-item">
+                    <a asp-controller="Hostel" asp-action="CreateHostel" class="nav-link active">Hostel Information</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Hostel" asp-action="HostelRoom" class="nav-link active">Hostel Rooms</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Hostel" asp-action="HostelAdmisssion" class="nav-link active">Hostel Admisssion</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Hostel" asp-action="HostelAttendance" class="nav-link active">Hostel Attendance</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Hostel" asp-action="VisitorDetails" class="nav-link active">Visitor Details</a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav-item nav-item-submenu @Url.MakeOpenClass("configuration")">
+            <a href="#" class="nav-link  @Url.MakeActiveClass("configuration","")">
+                <i class="icon-library2"></i> <span>Library</span>
+            </a>
+            <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                <li class="nav-item">
+                    <a asp-controller="Library" asp-action="index" class="nav-link active">Create Library</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Library" asp-action="BookList" class="nav-link active">Book List</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Library" asp-action="BooksRecord" class="nav-link active">Books Record</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Library" asp-action="BooksIssued" class="nav-link active">Books Issued</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Library" asp-action="BooksIssuedToStaff" class="nav-link active">Books Issued To Staff</a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav-item nav-item-submenu @Url.MakeOpenClass("configuration")">
+            <a href="#" class="nav-link  @Url.MakeActiveClass("configuration","")">
+                <i class="icon-calendar3"></i> <span>Schedules</span>
+            </a>
+            <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                <li class="nav-item">
+                    <a asp-controller="Schedules" asp-action="index" class="nav-link active">Add Schedules</a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav-item nav-item-submenu @Url.MakeOpenClass("configuration")">
+            <a href="#" class="nav-link  @Url.MakeActiveClass("configuration","")">
+                <i class="icon-watch2"></i> <span>Time Table</span>
+            </a>
+            <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                <li class="nav-item">
+                    <a asp-controller="TimeTable" asp-action="AssignTeacher" class="nav-link active">Assign Teacher</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="TimeTable" asp-action="TeachingSubject" class="nav-link active">Assign Subject</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="TimeTable" asp-action="TimeTableInManual" class="nav-link active">Time Table Manual</a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav-item nav-item-submenu @Url.MakeOpenClass("configuration")">
+            <a href="#" class="nav-link  @Url.MakeActiveClass("configuration","")">
+                <i class="icon-envelop4"></i> <span>Message</span>
+            </a>
+            <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                <li class="nav-item">
+                    <a asp-controller="Message" asp-action="MessageSubscribtion" class="nav-link active">Message Subscribtion</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Message" asp-action="SendMessagebyStudentName" class="nav-link active">Message by Student Name</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Message" asp-action="SentResult" class="nav-link active">Send Result</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Message" asp-action="SentComplaints" class="nav-link active">Send Complaints</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Message" asp-action="SendAcademicComplaint" class="nav-link active">Send Academic Complaint</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Message" asp-action="SentPublicmessage" class="nav-link active">Send Public Message</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Message" asp-action="SendDateSheet" class="nav-link active">Send DateSheet</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Message" asp-action="SendCallLetter" class="nav-link active">Send Call Letter</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Message" asp-action="SendMessageNew" class="nav-link active">Send Message New</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Message" asp-action="SendmessageIssuedFee" class="nav-link active">Send Message Issued Fee</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Message" asp-action="StudentAlumni" class="nav-link active">Send Message To Ex Students</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Message" asp-action="SendAttendence" class="nav-link active">Send Attendence</a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav-item nav-item-submenu @Url.MakeOpenClass("configuration")">
+            <a href="#" class="nav-link  @Url.MakeActiveClass("configuration","")">
+                <i class="icon-user-tie"></i> <span>Employee</span>
+            </a>
+            <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                <li class="nav-item">
+                    <a asp-controller="Employee" asp-action="Designation" class="nav-link active">Designation</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Employee" asp-action="EmployeeCreation" class="nav-link active">Employee Creation</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Employee" asp-action="EmployeeRegister" class="nav-link active">Employee Register</a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav-item nav-item-submenu @Url.MakeOpenClass("configuration")">
+            <a href="#" class="nav-link  @Url.MakeActiveClass("configuration","")">
+                <i class="icon-paypal2"></i> <span>PayRoll</span>
+            </a>
+            <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+
+                <li class="nav-item">
+                    <a asp-controller="Payroll" asp-action="Payhead" class="nav-link active">Payhead</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Payroll" asp-action="SalaryPackageCreation" class="nav-link active">Salary Package Creation</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Payroll" asp-action="SalaryPackageRegister" class="nav-link active">Salary Package Register</a>
+                </li>
+                <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link">Rating</a>
+                    <ul class="nav nav-group-sub">
+                        <li class="nav-item"><a asp-controller="Payroll" asp-action="RatingMasterEntry" class="nav-link">Rating Master Entry</a></li>
+                        <li class="nav-item"><a asp-controller="Payroll" asp-action="RatingEntry" class="nav-link">Rating Entry</a></li>
+                        <li class="nav-item"><a asp-controller="Payroll" asp-action="ActiveRating" class="nav-link">Active Entry</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link">Salary and Payments</a>
+                    <ul class="nav nav-group-sub">
+                        <li class="nav-item"><a asp-controller="Payroll" asp-action="AdvancePayment" class="nav-link">Advance Payment</a></li>
+                        @*<li class="nav-item"><a asp-controller="Payroll" asp-action="MonthlySalaryVoucher" class="nav-link">Monthly Salary Voucher</a></li>*@
+                        <li class="nav-item"><a asp-controller="Payroll" asp-action="MonthlySalaryRegister" class="nav-link">Monthly Salary Register</a></li>
+                        <li class="nav-item"><a asp-controller="Payroll" asp-action="BonusDeductionRegister" class="nav-link">Bonus Deduction Register</a></li>
+                        <li class="nav-item"><a asp-controller="Payroll" asp-action="BonusDeduction" class="nav-link">Bonus Deduction</a></li>
+                        <li class="nav-item"><a asp-controller="Payroll" asp-action="AdvanceRegister" class="nav-link">Advance Register</a></li>
+                        <li class="nav-item"><a asp-controller="Payroll" asp-action="PaySlips" class="nav-link">Pay Slip</a></li>
+                        <li class="nav-item"><a asp-controller="Payroll" asp-action="MonthlySalarySetting" class="nav-link">Monthly Salaary Setting</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </li>
+        <li class="nav-item nav-item-submenu @Url.MakeOpenClass("configuration")">
+            <a href="#" class="nav-link  @Url.MakeActiveClass("configuration","")">
+                <i class="icon-statistics"></i> <span>Accounts</span>
+            </a>
+            <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+
+                <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link">Account</a>
+                    <ul class="nav nav-group-sub">
+                        <li class="nav-item">
+                            <a asp-controller="AccountGroup" asp-action="ChartofAccounts" class="nav-link active">Chart of Accounts</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a asp-controller="AccountGroup" asp-action="AccountGroup" class="nav-link active">Account Group</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a asp-controller="AccountGroup" asp-action="AccountLedger" class="nav-link active">Account Ledger</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link">Account Transactions</a>
+                    <ul class="nav nav-group-sub">
+                        <li class="nav-item">
+                            <a asp-controller="AccountTransaction" asp-action="ContraVoucher" class="nav-link active">Contra Voucher</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a asp-controller="AccountTransaction" asp-action="PaymentVoucher" class="nav-link active">Payment Voucher</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a asp-controller="AccountTransaction" asp-action="ReceiptVoucher" class="nav-link active">Receipt Voucher</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a asp-controller="AccountTransaction" asp-action="JournalVoucher" class="nav-link active">Journal Voucher</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a asp-controller="AccountTransaction" asp-action="VendorPayBill" class="nav-link active">Vendor Pat Bills</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link">Post Dated Cheques</a>
+                    <ul class="nav nav-group-sub">
+                        <li class="nav-item">
+                            <a asp-controller="AccountGroup" asp-action="ChartofAccounts" class="nav-link active">PDC Recievable</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a asp-controller="AccountGroup" asp-action="AccountGroup" class="nav-link active">PDC Payable</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a asp-controller="AccountGroup" asp-action="AccountLedger" class="nav-link active">PDC CLearnace</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Accounts" asp-action="ExpenceEntry" class="nav-link active">Expense Entry Ctrl + E</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Accounts" asp-action="BankReconciliation" class="nav-link active">Bank Reconciliation Alt + B</a>
+                </li>
+
+                @*<li class="nav-item">
+                    <a asp-controller="Accounts" asp-action="BillAllocation" class="nav-link active">Bill Allocation Ctrl + P</a>
+                </li>*@
+
+                <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link">Others</a>
+                    <ul class="nav nav-group-sub">
+                        <li class="nav-item">
+                            <a asp-controller="Accounts" asp-action="DebitNote" class="nav-link active">Debit Note</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a asp-controller="Accounts" asp-action="CreditNote" class="nav-link active">Credit Note</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link">Registers</a>
+                    <ul class="nav nav-group-sub">
+                        <li class="nav-item">
+                            <a asp-controller="AccountTransaction" asp-action="IndexContra" class="nav-link active">Contra Register</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a asp-controller="AccountTransaction" asp-action="IndexPayment" class="nav-link active">Payment Register</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a asp-controller="AccountTransaction" asp-action="IndexReceipt" class="nav-link active">Receipt Register</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a asp-controller="AccountTransaction" asp-action="IndexJournal" class="nav-link active">Journal Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="AccountTransaction" asp-action="Indexvendor" class="nav-link active">Vendor Bills Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="PDCAccount" asp-action="IndexPDCPayable" class="nav-link active">PDC Payable Register</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a asp-controller="PDCAccount" asp-action="IndexPDCReceiveable" class="nav-link active">Payable Receivable Register</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a asp-controller="PDCAccount" asp-action="IndexPDCClearance" class="nav-link active">PDC Clearance Register</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a asp-controller="Accounts" asp-action="PaymentRegister" class="nav-link active">Expense Register</a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </li>
+
+
+        <li class="nav-item nav-item-submenu @Url.MakeOpenClass("configuration")">
+            <a href="#" class="nav-link  @Url.MakeActiveClass("configuration","")">
+                <i class="icon-cash"></i> <span>Budget</span>
+            </a>
+            <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                <li class="nav-item">
+                    <a asp-controller="Budget" asp-action="Index" class="nav-link active">Create Budget</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Budget" asp-action="BudgetVariance" class="nav-link active">Budget Variance</a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item nav-item-submenu @Url.MakeOpenClass("configuration")">
+            <a href="#" class="nav-link  @Url.MakeActiveClass("configuration","")">
+                <i class="icon-certificate "></i> <span>Reports</span>
+            </a>
+            <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                <li class="nav-item">
+                    <a asp-controller="Reports" asp-action="StudentReports" class="nav-link active">Student Reports</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Reports" asp-action="FeeReports" class="nav-link active">Fee Reports</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Reports" asp-action="ExamReports" class="nav-link active">Exam Reports</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Reports" asp-action="AttendanceReports" class="nav-link active">Attendance Reports</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Reports" asp-action="HostelReports" class="nav-link active">Hostel Reports</a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-controller="Reports" asp-action="EmployeeReports" class="nav-link active">Employee Reports</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<!-- /main navigation -->
